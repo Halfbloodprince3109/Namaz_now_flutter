@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
         title: Text('Home Screen'),
       ),
       body: Center(
-        child: Text('This is just a temporary test homescreen'),
+        child: Text('This is a temporary test homescreen'),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -17,3 +17,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
