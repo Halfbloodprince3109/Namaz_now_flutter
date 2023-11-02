@@ -149,7 +149,7 @@ class _RegionSelectionScreenState extends State<RegionSelectionScreen> {
             onTap: () {
               // Navigate to the new screen when "Proceed" is tapped
               Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => HomeScreen()),
+                MaterialPageRoute(builder: (context) => TemporaryHomeScreen()),
               );
             },
             child: Container(
