@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 // import 'package:namaz_mode_app/Hexagon_Painter_splashscreen.dart';
 import 'temporary_home.dart';
 import 'package:flutter/material.dart';
+import './Region_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Duration(seconds: duration),
       () {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => HomeScreen()),
+          MaterialPageRoute(builder: (context) => RegionSelectionScreen()),
         );
       },
     );
