@@ -94,53 +94,61 @@ class _RegionSelectionScreenState extends State<RegionSelectionScreen> {
           ),
           SizedBox(height: 50), // Add space here
 
-          Container(
-            width: 360,
-            height: 66,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.2),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: Offset(0, 3),
+          IgnorePointer(
+            ignoring:
+                !isManualSelection, // Disable interaction when manual is off
+            child: Opacity(
+              opacity:
+                  isManualSelection ? 1.0 : 0.3, // Adjust the opacity as needed
+              child: Container(
+                width: 360,
+                height: 66,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Row(
-              children: [
-                Text(
-                  'Region',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 26.0,
-                    fontWeight: FontWeight.w400,
-                  ),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    Text(
+                      'Region',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 26.0,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                    Spacer(),
+                    DropdownButton<String>(
+                      value: selectedRegion,
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          selectedRegion = newValue!;
+                        });
+                      },
+                      items: <String>[
+                        'Pakistan',
+                        'Australia',
+                        'India',
+                        'Saudi Arabia'
+                      ].map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    ),
+                  ],
                 ),
-                SizedBox(width: 8),
-                Spacer(),
-                DropdownButton<String>(
-                  value: selectedRegion,
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      selectedRegion = newValue!;
-                    });
-                  },
-                  items: <String>[
-                    'Pakistan',
-                    'Australia',
-                    'India',
-                    'Saudi Arabia'
-                  ].map((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                ),
-              ],
+              ),
             ),
           ),
           SizedBox(height: 150), // Add significant space here
