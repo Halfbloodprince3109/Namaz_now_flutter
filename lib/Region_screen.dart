@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import './temporary_home.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegionSelectionScreen extends StatefulWidget {
+  const RegionSelectionScreen({super.key});
+
   @override
   _RegionSelectionScreenState createState() => _RegionSelectionScreenState();
 }
@@ -18,20 +21,20 @@ class _RegionSelectionScreenState extends State<RegionSelectionScreen> {
       body: Column(
         children: [
           Container(
-            width: double.infinity,
+            width: MediaQuery.sizeOf(context).width,
             height: 143,
-            decoration: BoxDecoration(color: Color(0xFF013220)),
+            decoration: const BoxDecoration(color: Color(0xFF013220)),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  padding: EdgeInsets.only(bottom: 8.0),
+                  padding: const EdgeInsets.only(bottom: 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        padding: EdgeInsets.only(right: 8.0),
-                        child: Icon(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: const Icon(
                           Icons.location_on,
                           color: Colors.white,
                           size: 40.0,
@@ -39,9 +42,10 @@ class _RegionSelectionScreenState extends State<RegionSelectionScreen> {
                       ),
                       Text(
                         "REGION",
+                        textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 40.0,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 30.0.sp,
+                          fontWeight: FontWeight.w500,
                           color: Colors.white,
                         ),
                       ),
@@ -51,11 +55,12 @@ class _RegionSelectionScreenState extends State<RegionSelectionScreen> {
               ],
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
 
           Container(
-            width: 360,
+            width: MediaQuery.sizeOf(context).width,
             height: 44,
+            margin: EdgeInsets.symmetric(horizontal: 10.h),
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
@@ -63,14 +68,14 @@ class _RegionSelectionScreenState extends State<RegionSelectionScreen> {
                   color: Colors.grey.withOpacity(0.2),
                   spreadRadius: 5,
                   blurRadius: 7,
-                  offset: Offset(0, 3),
+                  offset: const Offset(10, 15),
                 ),
               ],
             ),
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Row(
               children: [
-                Text(
+                const Text(
                   'Manual',
                   style: TextStyle(
                     color: Color(0xFF007AFF),
@@ -78,8 +83,8 @@ class _RegionSelectionScreenState extends State<RegionSelectionScreen> {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                SizedBox(width: 8),
-                Spacer(),
+                const SizedBox(width: 8),
+                const Spacer(),
                 CupertinoSwitch(
                   value: isManualSelection,
                   onChanged: (value) {
@@ -92,7 +97,7 @@ class _RegionSelectionScreenState extends State<RegionSelectionScreen> {
               ],
             ),
           ),
-          SizedBox(height: 50), // Add space here
+          const SizedBox(height: 50), // Add space here
 
           IgnorePointer(
             ignoring:
@@ -101,8 +106,9 @@ class _RegionSelectionScreenState extends State<RegionSelectionScreen> {
               opacity:
                   isManualSelection ? 1.0 : 0.3, // Adjust the opacity as needed
               child: Container(
-                width: 360,
+                width: MediaQuery.sizeOf(context).width,
                 height: 66,
+                margin: EdgeInsets.symmetric(horizontal: 15),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   boxShadow: [
@@ -110,23 +116,23 @@ class _RegionSelectionScreenState extends State<RegionSelectionScreen> {
                       color: Colors.grey.withOpacity(0.2),
                       spreadRadius: 5,
                       blurRadius: 7,
-                      offset: Offset(0, 3),
+                      offset: const Offset(0, 3),
                     ),
                   ],
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: Row(
                   children: [
                     Text(
                       'Region',
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 26.0,
+                        fontSize: 20.0.sp,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    SizedBox(width: 8),
-                    Spacer(),
+                    const SizedBox(width: 8),
+                    const Spacer(),
                     DropdownButton<String>(
                       value: selectedRegion,
                       onChanged: (String? newValue) {
@@ -151,7 +157,7 @@ class _RegionSelectionScreenState extends State<RegionSelectionScreen> {
               ),
             ),
           ),
-          SizedBox(height: 150), // Add significant space here
+          const SizedBox(height: 150), // Add significant space here
 
           GestureDetector(
             onTap: () {
@@ -161,20 +167,21 @@ class _RegionSelectionScreenState extends State<RegionSelectionScreen> {
               );
             },
             child: Container(
-              width: 368,
-              height: 83,
+              width: MediaQuery.sizeOf(context).width,
+              height: 50.h,
+              margin: EdgeInsets.symmetric(horizontal: 10.w),
               decoration: ShapeDecoration(
-                color: Color(0xFF013220),
+                color: const Color(0xFF013220),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(79),
+                  borderRadius: BorderRadius.circular(79.sp),
                 ),
               ),
               child: Center(
                 child: Text("Proceed",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 40.0,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0.sp,
+                      fontWeight: FontWeight.w500,
                     )),
               ),
             ),
