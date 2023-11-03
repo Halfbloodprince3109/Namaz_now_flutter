@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import './temporary_home.dart';
+import './new_home.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegionSelectionScreen extends StatefulWidget {
@@ -163,7 +163,7 @@ class _RegionSelectionScreenState extends State<RegionSelectionScreen> {
             onTap: () {
               // Navigate to the new screen when "Proceed" is tapped
               Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => TemporaryHomeScreen()),
+                MaterialPageRoute(builder: (context) => HomeScreen()),
               );
             },
             child: Container(
