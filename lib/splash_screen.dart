@@ -1,8 +1,8 @@
 import 'dart:async';
 // import 'dart:math';
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 // import 'package:namaz_mode_app/Hexagon_Painter_splashscreen.dart';
-import 'temporary_home.dart';
+// import 'temporary_home.dart';
 import 'package:flutter/material.dart';
 import './Region_screen.dart';
 
