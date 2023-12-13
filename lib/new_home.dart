@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import './new_home.dart';
+import 'package:get/get.dart';
 import './Navigationbar.dart';
 import './settings.dart';
 
@@ -13,26 +13,66 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFF013220),
-      bottomNavigationBar: MyNavigationBar(
-        currentIndex: _currentIndex,
-        onIndexChanged: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
+    return SafeArea(
+      child: Scaffold(
+        body: Column(children: [
+          //   mainAxisSize: MainAxisSize.min,
+          //   crossAxisAlignment: CrossAxisAlignment.start,
+          //   children: [
+          //     Container(
+          //       width: MediaQuery.of(context).size.width,
+          //       height: MediaQuery.of(context).size.height * 0.2,
+          //       color: Colors.white, // White container above the image
+          //     ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            // height: MediaQuery.of(context).size.height * 0.3,
+            child: Image.asset(
+              "assets/md.jpeg",
+              fit: BoxFit.cover,
+            ),
+          ),
+        ]),
+        backgroundColor: Color(0xFF013220),
+        bottomNavigationBar: MyNavigationBar(
+          currentIndex: _currentIndex,
+          onIndexChanged: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
 
-          if (index == 1) {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => SettingsScreen()),
-            );
-          }
-        },
+            if (index == 1) {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => SettingsScreen()),
+              );
+            }
+          },
+        ),
       ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ---------------------------------------------------------
 // class HomeScreen extends StatefulWidget {
 //   @override
 //   _HomeScreenState createState() => _HomeScreenState();
