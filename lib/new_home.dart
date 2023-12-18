@@ -24,14 +24,58 @@ class _HomeScreenState extends State<HomeScreen> {
           //       height: MediaQuery.of(context).size.height * 0.2,
           //       color: Colors.white, // White container above the image
           //     ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            // height: MediaQuery.of(context).size.height * 0.3,
-            child: Image.asset(
-              "assets/md.jpeg",
-              fit: BoxFit.cover,
-            ),
-          ),
+          // SizedBox(
+          //   width: MediaQuery.of(context).size.width,
+          //   // height: MediaQuery.of(context).size.height * 0.3,
+          //   child: Image.asset(
+          //     "assets/md.jpeg",
+          //     fit: BoxFit.cover,
+          //   ),
+          // ),
+          Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.sizeOf(context).height * 0.25,
+              alignment: Alignment.bottomCenter,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/md.jpeg"), fit: BoxFit.cover),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Container(
+                        height: 20,
+                        width: 15,
+                      ),
+                      Expanded(
+                          child: customColumn(
+                              title: "Namaz", icon: Icons.terrain)),
+                      Container(
+                        height: 20,
+                        width: 15,
+                      ),
+                      Expanded(
+                          child: customColumn(
+                              title: "Time starts",
+                              icon: Icons.place_outlined)),
+                      Container(
+                        height: 20,
+                        width: 15,
+                      ),
+                      Expanded(
+                          child: customColumn(
+                              title: "jamaat", icon: Icons.place_outlined)),
+                      Container(
+                        height: 20,
+                        width: 15,
+                      ),
+                    ],
+                  ),
+                ],
+              )),
         ]),
         backgroundColor: Color(0xFF013220),
         bottomNavigationBar: MyNavigationBar(
@@ -49,6 +93,22 @@ class _HomeScreenState extends State<HomeScreen> {
             }
           },
         ),
+      ),
+    );
+  }
+
+  Widget customColumn({required String title, required IconData icon}) {
+    return Container(
+      color: Color(0xFF013220),
+      child: Column(
+        children: [
+          Text(
+            "$title",
+            style: TextStyle(color: Colors.white),
+          ),
+          SizedBox(height: 10),
+          Icon(icon, color: Colors.white)
+        ],
       ),
     );
   }
