@@ -10,6 +10,33 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
+  List namazTimes = [
+    {
+      "title": "Fajr",
+      "timeStarts": "4:00",
+      "JamaatTime": "4:30",
+    },
+    {
+      "title": "Dhuhr",
+      "timeStarts": "12:30",
+      "JamaatTime": "1:30",
+    },
+    {
+      "title": "Asr",
+      "timeStarts": "5:00",
+      "JamaatTime": "5:30",
+    },
+    {
+      "title": "Maghrib ",
+      "timeStarts": "6:00",
+      "JamaatTime": "6:00",
+    },
+    {
+      "title": "Ishaa",
+      "timeStarts": "7:45",
+      "JamaatTime": "8:00",
+    }
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +103,40 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               )),
+
+          SizedBox(
+            height: 100,
+            child: ListView.builder(
+              itemCount: namazTimes.length,
+              itemBuilder: (context, index) {
+                final item = namazTimes[index];
+                print(item["title"]);
+                print(item["timeStarts"]);
+                print(item["JamaatTime"]);
+                return Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        item["title"],
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        item["timeStarts"],
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 255, 255, 255)),
+                      ),
+                      Text(
+                        item["JamaatTime"],
+                        style: TextStyle(color: Colors.white),
+                      )
+                    ],
+                  ),
+                );
+              },
+            ),
+          )
         ]),
         backgroundColor: Color(0xFF013220),
         bottomNavigationBar: MyNavigationBar(
@@ -113,103 +174,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ---------------------------------------------------------
-// class HomeScreen extends StatefulWidget {
-//   @override
-//   _HomeScreenState createState() => _HomeScreenState();
-// }
-
-// class _HomeScreenState extends State<HomeScreen> {
-//   int _currentIndex = 0;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Color(0xFF013220),
-//       body: Center(
-//         child: Text(
-//           'Welcome to the Home Screen!',
-//           style: TextStyle(color: Colors.white),
-//         ),
-//       ),
-//       bottomNavigationBar: Stack(
-//         children: [
-//           BottomNavigationBar(
-//             selectedItemColor: Colors.white,
-//             unselectedItemColor: Colors.white,
-//             currentIndex: _currentIndex,
-//             elevation: 0.0, // Set elevation to 0 for the BottomNavigationBar
-//             items: [
-//               BottomNavigationBarItem(
-//                 icon: Icon(Icons.home),
-//                 label: 'Home',
-//               ),
-//               BottomNavigationBarItem(
-//                 icon: Icon(Icons.settings),
-//                 label: 'Settings',
-//               ),
-//             ],
-//             onTap: (index) {
-//               if (index == 1) {
-//                 // Tapped on "Settings" icon, do nothing
-//               } else if (index == 0) {
-//                 // Tapped on "Home" icon, navigate to HomeScreen
-//                 setState(() {
-//                   _currentIndex = index;
-//                 });
-//                 Navigator.pushReplacement(
-//                   context,
-//                   MaterialPageRoute(builder: (context) => HomeScreen()),
-//                 );
-//               }
-//             },
-//             selectedLabelStyle: TextStyle(
-//               fontSize: 14.0,
-//             ),
-//             unselectedLabelStyle: TextStyle(
-//               fontSize: 14.0,
-//             ),
-//           ),
-//           Positioned(
-//             left: 0.0,
-//             right: 0.0,
-//             bottom: 0.0,
-//             child: Container(
-//               height: 8.0, // Adjust the elevation height as needed
-//               decoration: BoxDecoration(
-//                 color: Colors.grey
-//                     .withOpacity(0.8), // Adjust color and opacity as needed
-//                 boxShadow: [
-//                   BoxShadow(
-//                     color: Colors.black.withOpacity(
-//                         0.3), // Adjust shadow color and opacity as needed
-//                     blurRadius: 10.0, // Adjust blur radius as needed
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
