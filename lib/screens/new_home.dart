@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import './Navigationbar.dart';
+import 'package:namaz_mode_app/widgets/Navigationbar.dart';
 import './settings.dart';
 
 class HomeScreen extends StatefulWidget {

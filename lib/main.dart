@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'splash_screen.dart';
+import 'package:namaz_mode_app/screens/splash_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
@@ -12,4 +12,3 @@ void main() {
     ),
   ));
 }
-  

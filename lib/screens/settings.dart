@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:namaz_mode_app/new_home.dart';
-import './Navigationbar.dart';
+import 'package:namaz_mode_app/screens/new_home.dart';
+import 'package:namaz_mode_app/widgets/Navigationbar.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
